@@ -32,6 +32,7 @@
 }
 .btn--header {
   width: 167px;
+  font-size: 14px;
 }
 .btn--main-screen {
   height: 62px;
@@ -121,7 +122,7 @@
   width: 30px;
   height: 10px;
   display: inline-block;
-  margin: 9px 20px;
+  margin: 9px 13px;
   background: url(../img/main-screen_arrow.png) no-repeat;
   background-size: cover;
 }
