@@ -211,6 +211,10 @@ img {
   font-size: 24px;
   font-weight: 700;
   line-height: 34px;
+  background-image: url(../img/icon_quote.svg);
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position-y: 8px;
 }
 .stats__descr {
   margin-top: 25px;
@@ -314,5 +318,32 @@ img {
 .projects__link {
   width: 32px;
   height: 32px;
-  background-color: red;
+}
+.projects__icon *,
+.projects__arrow-path {
+  -webkit-transition: all 400ms;
+  -o-transition: all 400ms;
+  transition: all 400ms;
+}
+.projects__link:hover svg * {
+  stroke: #ebba16;
+}
+.projects__arrow {
+  position: absolute;
+  top: 117px;
+  width: 12px;
+  height: 20px;
+}
+.projects__arrow:hover {
+  cursor: pointer;
+}
+.projects__arrow:hover .projects__arrow-path {
+  stroke: #d8aa17;
+}
+.projects__arrow--prev {
+  left: 18px;
+  z-index: 10;
+}
+.projects__arrow--next {
+  right: 18px;
 }
