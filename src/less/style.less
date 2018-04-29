@@ -29,6 +29,8 @@ img {
 	color: #000;
 
 	background-color: @mainBgPage;
+
+	height: 10000px;
 }
 /* Block - btn */
 .btn {
@@ -507,6 +509,7 @@ img {
 
 .price__name {
 	line-height: 1.375;
+	display: inline;
 }
 
 .price__faq {
@@ -518,12 +521,105 @@ img {
 	background-color: red;
 	margin-left: 5px;
 }
-
+.price__faq:hover {
+	cursor: pointer;
+}
+.price__faq:hover ~ .descr,
+.descr:hover {
+	display: block;
+}
 .price__descr {
 	position: absolute;
 	left: 83.54037267080745%;
+	top: -42px;
+
+	padding-left: 19px;
+	padding-right: 19px;
+	padding-top: 22px;
 }
 /* Block - descr */
 .descr {
+	width: 428px;
+	z-index: 20;
+	display: none;
+	font-weight: normal;
+
+	background-color: #fff;
+	border: 6px solid #ffe400;
+	
+}
+
+.descr:hover {
+	cursor: auto;
+}
+.descr:before {
 	position: absolute;
+	top: 155px;
+	left: -35px;
+
+	content: "";
+	display: block;
+
+	border: 15px solid transparent;
+
+	border-right: 15px solid #ffe400;
+}
+.descr__headline {
+	font-size: 23px;
+	font-weight: 500;
+	margin: 0;
+}
+
+.descr__text {
+	margin-top: 18px;
+	margin-bottom: 20px;
+}
+
+.descr__price-list-head,
+.descr__price-list {
+	font-size: 14px;
+	line-height: 1.7;
+}
+
+.descr__price-list-head {
+	margin: 0;
+
+}
+
+.descr__price-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 26px;
+}
+
+.descr__banner {
+	height: 87px;
+	margin-left: -19px;
+	margin-right: -19px;
+
+	background-color: #f1f1ee;
+
+	
+}
+
+.descr__img {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	height: 63px;
+	width: auto;
+}
+.descr__close {
+	position: absolute;
+	top: 35px;
+	right: 33px;
+
+	width: 18px;
+	height: 18px;
+	display: block;
+
+	background-color: green;
 }
