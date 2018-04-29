@@ -295,6 +295,7 @@ img {
 .projects__slider,
 .projects__pict {
   height: 252px;
+  overflow: hidden;
 }
 .projects__name {
   height: 65px;
