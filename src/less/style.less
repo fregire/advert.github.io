@@ -41,6 +41,14 @@
 	height: 62px;
 	width: 230px;
 }
+
+.headline {
+	padding: 0;
+	margin: 0;
+
+	font-size: 38px;
+	line-height: 0.63;
+}
 /* Block - header */
 .header {
 	line-height: 58px;
@@ -176,4 +184,79 @@
 }
 .adv__text {
 	margin: 0;
+}
+
+
+/* Block - stats */
+.stats {
+	height: 550px;
+}
+
+.stats__inner {
+	max-width: 1280px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	background: #e0e0e0 url(../img/stats_bg.jpg) no-repeat;
+	background-size: cover;
+}
+
+.stats__content {
+	flex: 1;
+	padding-left: 90px;
+	padding-top: 100px;
+	padding-bottom: 110px;
+	padding-right: 113px;
+}
+
+.stats__main-text,
+.stats__descr {
+	margin: 0;
+	padding-left: 62px;
+}
+
+.stats__main-text {
+	margin-top: 50px;
+
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 34px;
+}
+
+.stats__descr {
+	margin-top: 25px;
+}
+
+.stats__numbers {
+	width: 490px;
+	padding: 115px 75px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	text-align: center;
+	font-size: 14px;
+	line-height: 1.28;
+
+	background: rgba(236, 185, 20, .9);
+}
+
+.stats__num {
+	width: 147px;
+	display: inline-block;
+}
+
+.stats__num:nth-child(3),
+.stats__num:nth-child(4) {
+	margin-top: auto;
+}
+.stats__top-text,
+.stats__number,
+.stats__bottom-text {
+	margin: 0;	
+}
+.stats__number {
+	font-size: 53px;
+	font-weight: 900;
+	line-height: 1.2;
 }
