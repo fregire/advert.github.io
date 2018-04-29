@@ -4,6 +4,12 @@
 * {
 	box-sizing: border-box;
 }
+
+img {
+	width: 100%;
+	height: auto;
+}
+
 .visually-hidden {
   position: absolute;
   clip: rect(0 0 0 0);
@@ -195,6 +201,7 @@
 .stats__inner {
 	max-width: 1280px;
 	margin: 0 auto;
+	margin-bottom: 95px;
 	display: flex;
 	flex-wrap: wrap;
 	background: #e0e0e0 url(../img/stats_bg.jpg) no-repeat;
@@ -260,3 +267,75 @@
 	font-weight: 900;
 	line-height: 1.2;
 }
+
+
+/* Block - projects */
+.projects {
+	background-color: #fff;
+}
+.projects__inner {
+	max-width: 1310px;
+	margin: 0 auto;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.projects__header {
+	width: 45%;
+}
+
+.projects__headline,
+.projects__descr {
+	margin: 0;
+}
+.projects__headline {
+	margin-top: 78px;
+	margin-bottom: 22px;
+
+	font-size: 24px;
+	line-height: 1.4;
+}
+
+.projects__descr {
+	margin-bottom: 45px;
+}
+
+.projects__examples {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.projects__example {
+	position: relative;
+
+	width: 421px;
+}
+
+.projects__slider {
+	height: 252px;
+}
+
+.projects__name {	
+	height: 65px;
+	padding-left: 17px;
+	padding-right: 80px;
+	padding-top: 14px;
+
+	line-height: 1.42;
+	font-size: 14px;
+
+	background-color: @mainBgPage;
+}
+
+.projects__count-slide {
+	position: absolute;
+	right: 20px;
+	bottom: 14px;
+
+	color: #727272;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+
