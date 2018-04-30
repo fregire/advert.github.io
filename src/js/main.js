@@ -11,7 +11,21 @@ $(".projects__slider").slick({
     nextArrow: '<svg class="projects__arrow projects__arrow--next" width="11" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.6 19.9"><path class="projects__arrow-path" fill="none" stroke="#828181" stroke-miterlimit="10" d="M.5.4l9.3 9.3-9.3 9.8"/></svg>'
 });
 // Добавление счетчика для слайдов
- $(".projects__slider").on('afterChange', function(event, slick, currentSlide){
+$(".projects__slider").on('afterChange', function(event, slick, currentSlide){
  	var elemForCount = $(this).siblings(".projects__count-slide");
  	elemForCount.text(currentSlide + 1 + "/" + elemForCount.attr("data-length"));
+});
+
+ // Окно прайс-листа 
+var closeBtn = $(".descr__close");
+for (i = 0; i < closeBtn.length; i++) {
+	$(closeBtn[i]).on("click", function () {
+		$(this).parent().css("display", "none");
+		$(".descr").siblings(".price__faq").mouseover(function() {
+			$(this).siblings(".descr").removeAttr("style");
+		});
+	});
+}
+$(".descr").mouseover(function() {
+	$(this).siblings(".price__faq:after").css("opacity", 1);
 });
