@@ -30,3 +30,10 @@ $(".feed-item__slider").slick({
 	nextArrow: "<div class='feed-item__arrow feed-item__arrow--next'><svg width='10' height='20' xmlns='http://www.w3.org/2000/svg'><path fill='none' stroke='#000' stroke-miterlimit='10' d='M0 20l10-10M0 0l10 10.7'/></svg></div>",
 	prevArrow: "<div class='feed-item__arrow feed-item__arrow--prev'></div>"
 });
+
+// Открытие вопросов в секции faq 
+$(".faq__btn").on("click", function() {
+	$(this).toggleClass("faq__btn--opened");
+	$(this).siblings(".faq__answer").toggleClass("faq__answer--opened");
+
+});

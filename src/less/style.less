@@ -1,6 +1,7 @@
 @btnColor: #f9c620;
 @btnHoverColor: #e0b015;
 @mainBgPage: #eee;
+
 * {
 	box-sizing: border-box;
 }
@@ -808,3 +809,79 @@ img {
 	font-weight: 700;
 }
 
+/* Block - faq */
+.faq__inner {
+	max-width: 785px;
+	margin: 0 auto;
+	padding-top: 115px;
+}
+
+.faq__headline {
+	margin-bottom: 65px;
+	text-align: center;
+}
+
+.faq__quest {
+	padding-bottom: 30px;
+	margin: 0;
+
+	color: #343434;
+	font-size: 24px;
+	font-weight: 500;
+
+	border-bottom: 1px solid #cfcfcf;
+}
+
+.faq__item {
+	position: relative;
+}
+
+.faq__btn {
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	width: 47px;
+	height: 47px;
+
+	border-radius: 50%;
+	background: transparent;
+
+	outline: none;	
+	border: 2px solid #a8a8a8;
+}
+
+.faq__btn:hover {
+	cursor: pointer;
+}
+
+.faq__btn i {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	width: 21px;
+	height: 15px;
+
+	background: url(../img/icons_sprite.png) no-repeat;
+	background-position: -52px -2px;
+}
+
+.faq__btn--opened {
+	transform: rotate(90deg);
+}
+
+.faq__answer {
+	overflow: hidden;
+	height: 0;
+}
+
+.faq__answer--opened {
+	height: 300px;
+}
+
+.faq__btn,
+.faq__answer {
+	transition: all 400ms;
+}
