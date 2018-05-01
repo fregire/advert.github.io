@@ -459,9 +459,9 @@ img {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  -ms-flex-preferred-size: 33%;
-      flex-basis: 33%;
-  width: 33%;
+  -ms-flex-preferred-size: calc(33% - 5px);
+      flex-basis: calc(33% - 5px);
+  width: calc(33% - 5px);
   height: 187px;
   padding-top: 60px;
   padding-left: 70px;
