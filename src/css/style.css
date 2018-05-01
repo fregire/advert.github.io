@@ -384,6 +384,7 @@ img {
   top: 117px;
   width: 12px;
   height: 20px;
+  background-color: transparent;
 }
 .projects__arrow:hover {
   cursor: pointer;
