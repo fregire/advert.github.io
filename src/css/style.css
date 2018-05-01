@@ -658,6 +658,9 @@ img {
   height: 82px;
   background-color: #ebebeb;
 }
+.feed-item__arrow:hover {
+  cursor: pointer;
+}
 .feed-item__arrow--next {
   right: -50px;
 }
