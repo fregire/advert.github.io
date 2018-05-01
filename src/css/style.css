@@ -716,8 +716,13 @@ img {
   font-weight: 500;
   border-bottom: 1px solid #cfcfcf;
 }
+.faq__quest--opened {
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0;
+}
 .faq__item {
   position: relative;
+  margin-bottom: 43px;
 }
 .faq__btn {
   position: absolute;
@@ -729,6 +734,9 @@ img {
   background: transparent;
   outline: none;
   border: 2px solid #a8a8a8;
+  -webkit-transition: all 400ms;
+  -o-transition: all 400ms;
+  transition: all 400ms;
 }
 .faq__btn:hover {
   cursor: pointer;
@@ -751,15 +759,8 @@ img {
           transform: rotate(90deg);
 }
 .faq__answer {
-  overflow: hidden;
-  height: 0;
-}
-.faq__answer--opened {
-  height: 300px;
-}
-.faq__btn,
-.faq__answer {
-  -webkit-transition: all 400ms;
-  -o-transition: all 400ms;
-  transition: all 400ms;
+  display: none;
+  -webkit-transition: all 600ms;
+  -o-transition: all 600ms;
+  transition: all 600ms;
 }

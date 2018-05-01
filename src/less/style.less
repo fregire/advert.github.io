@@ -832,8 +832,15 @@ img {
 	border-bottom: 1px solid #cfcfcf;
 }
 
+.faq__quest--opened {
+	border-bottom: 1px solid transparent;
+	padding-bottom: 0;
+}
+
 .faq__item {
 	position: relative;
+
+	margin-bottom: 43px;
 }
 
 .faq__btn {
@@ -849,6 +856,8 @@ img {
 
 	outline: none;	
 	border: 2px solid #a8a8a8;
+
+	transition: all 400ms;
 }
 
 .faq__btn:hover {
@@ -873,15 +882,8 @@ img {
 }
 
 .faq__answer {
-	overflow: hidden;
-	height: 0;
+	display: none;
+
+	transition: all 600ms;
 }
 
-.faq__answer--opened {
-	height: 300px;
-}
-
-.faq__btn,
-.faq__answer {
-	transition: all 400ms;
-}

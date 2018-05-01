@@ -33,7 +33,9 @@ $(".feed-item__slider").slick({
 
 // Открытие вопросов в секции faq 
 $(".faq__btn").on("click", function() {
+	$(this).siblings(".faq__quest").toggleClass("faq__quest--opened");
 	$(this).toggleClass("faq__btn--opened");
-	$(this).siblings(".faq__answer").toggleClass("faq__answer--opened");
+	$(this).siblings(".faq__answer").toggle(300);
+
 
 });
