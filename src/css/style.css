@@ -347,14 +347,15 @@ img {
   width: 32px;
   height: 32px;
 }
-.projects__icon *,
-.projects__arrow-path {
+.projects__icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: url(../img/icon_link.svg) no-repeat;
+  background-size: cover;
   -webkit-transition: all 400ms;
   -o-transition: all 400ms;
   transition: all 400ms;
-}
-.projects__link:hover svg * {
-  stroke: #ebba16;
 }
 .projects__arrow {
   position: absolute;
