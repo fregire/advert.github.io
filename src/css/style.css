@@ -781,7 +781,6 @@ img {
 }
 .faq__quest--opened {
   border-bottom: 1px solid transparent;
-  padding-bottom: 0;
 }
 .faq__item {
   position: relative;
@@ -823,9 +822,6 @@ img {
 }
 .faq__answer {
   display: none;
-  -webkit-transition: all 600ms;
-  -o-transition: all 600ms;
-  transition: all 600ms;
 }
 /* Block - callback */
 .callback {

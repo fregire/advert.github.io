@@ -33,9 +33,18 @@ $(".feed-item__slider").slick({
 
 // Открытие вопросов в секции faq 
 $(".faq__btn").on("click", function() {
-	$(this).siblings(".faq__quest").toggleClass("faq__quest--opened");
-	$(this).toggleClass("faq__btn--opened");
-	$(this).siblings(".faq__answer").toggle(300);
+	if($(this).hasClass("faq__btn--opened")){
+		$(this).siblings(".faq__quest").removeClass("faq__quest--opened");
+		$(this).removeClass("faq__btn--opened");
+		$(this).siblings(".faq__answer").slideUp(300);
+	} else {
+		$(this).siblings(".faq__quest").addClass("faq__quest--opened");
+		$(this).addClass("faq__btn--opened");
+		$(this).siblings(".faq__answer").slideDown(300);
+	}
+	
+	
+	
 
 
 });
