@@ -781,7 +781,9 @@ img {
 
 	background-color: #ebebeb;
 }
-
+.feed-item--reviews .feed-item__arrow{
+	background-color: #fff;
+}
 .feed-item__arrow:hover {
 	cursor: pointer;
 }
@@ -792,6 +794,19 @@ img {
 
 .feed-item__arrow--prev {
 	right: 39px;
+}
+
+.feed-item__arrow svg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.feed-item__arrow svg path {
+	transition: all 200ms;
+}
+.feed-item__arrow:hover svg path {
+	stroke: #f8c932;
 }
 
 .feed-item__number {
