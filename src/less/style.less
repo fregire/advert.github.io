@@ -33,6 +33,21 @@ img {
 
 	height: 10000px;
 }
+
+/* Block - input */
+.input {
+	height: 30px;
+
+	border: none;
+	border-bottom: 1px solid #656568;
+	background-color: transparent;
+
+	outline: none;
+}
+
+.input:focus {
+	border-bottom-color: #828283;
+}
 /* Block - btn */
 .btn {
 	border: none;
@@ -814,6 +829,7 @@ img {
 	max-width: 785px;
 	margin: 0 auto;
 	padding-top: 115px;
+	padding-bottom: 38px;
 }
 
 .faq__headline {
@@ -885,5 +901,70 @@ img {
 	display: none;
 
 	transition: all 600ms;
+}
+
+
+
+/* Block - callback */
+.callback {
+	background: #434346 url(../img/callback_bg.jpg) no-repeat;
+	background-size: cover;
+}
+
+.callback__inner {
+	max-width: 1170px;
+	margin: 0 auto;
+	display: flex;
+	padding-top: 92px;
+}
+
+.callback__request {
+	width: 48.71794871794872%;
+}
+
+.callback__headline {
+	padding-top: 10px;
+
+	color: #fff;
+}
+
+.callback__descr {
+	padding-right: 20px;
+	margin-top: 24px;
+	margin-bottom: 30px;
+
+	color: #d7d2d2;
+	line-height: 24px;
+}
+
+
+/* Block - form */
+.form__field {
+	position: relative;
+
+	height: 30px;
+}
+
+.form__name {
+	position: absolute;
+	top: 5px;
+	left: 0;
+
+	font-size: 14px;
+	font-weight: 500;
+	color: #d2d2d2;
+
+	transition: all 200ms;
+}
+
+.form__name:hover {
+	cursor: text;
+}
+
+.form__name--active {
+	top: -10px;
+
+	font-size: 11px;
+	color: #9f9f9f;
 }
 
