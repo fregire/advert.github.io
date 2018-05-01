@@ -56,6 +56,7 @@ img {
 .btn--header {
   width: 167px;
   font-size: 14px;
+  background-color: #d1d1d1;
 }
 .btn--main-screen {
   height: 62px;
@@ -140,6 +141,7 @@ img {
   line-height: 24px;
 }
 .main-screen__text {
+  margin-top: -10px;
   text-transform: uppercase;
   color: #d9d9d9;
   font-size: 17px;
@@ -584,9 +586,10 @@ img {
   border: 6px solid #ffe400;
 }
 .descr__headline {
+  margin: 0;
+  padding-right: 50px;
   font-size: 23px;
   font-weight: 500;
-  margin: 0;
 }
 .descr__text {
   margin-top: 18px;
@@ -913,6 +916,7 @@ img {
 }
 .contacts__banner--address {
   padding: 30px 52px;
+  border-bottom-color: transparent;
 }
 .contacts__name {
   margin: 0;
