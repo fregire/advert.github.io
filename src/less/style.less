@@ -58,6 +58,7 @@ img {
 
 	border: none;
 	background: @btnColor;
+	outline: none;
 
 	transition: background 200ms;
 }
@@ -1034,11 +1035,15 @@ img {
 	font-weight: 500;
 	color: #d2d2d2;
 
-	transition: all 200ms;
+	transition: all 300ms;
 }
 
 .form__name:hover {
 	cursor: text;
+}
+
+.form__name--error {
+	color: #aa5a5b;
 }
 
 .form__name--active {

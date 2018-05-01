@@ -60,3 +60,16 @@ $("input").on("blur", function() {
 });
 // Маска для телефона 
 $("#phone").mask("+7(999) 999-9999");
+
+
+// Проверка форм
+$(".btn--form").on("click", function(e) {
+	var forms = $(".input");
+	// Минус 1 т.к. форма с сообщением не обязательна к заполнению
+	for(var i = 0; i < forms.length - 1; i++ ){
+		if($(forms[i]).val() == ""){
+			$(forms[i]).siblings(".form__name").addClass("form__name--error");
+		}
+	};
+	e.preventDefault();
+});
