@@ -45,7 +45,9 @@ $("input").on("focus", function() {
 	$(this).siblings(".form__name").addClass("form__name--active");
 });
 $("input").on("blur", function() {
-	if($(this).val() == ""){
+	if(($(this).val() == "") || ($(this).val() == "+7(___) ___-____")){
 		$(this).siblings(".form__name").removeClass("form__name--active");
 	}
 });
+// Маска для телефона 
+$("#phone").mask("+7(999) 999-9999");
