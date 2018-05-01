@@ -384,6 +384,7 @@ img {
   top: 117px;
   width: 12px;
   height: 20px;
+  background-color: transparent;
 }
 .projects__arrow:hover {
   cursor: pointer;
@@ -459,9 +460,9 @@ img {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  -ms-flex-preferred-size: 33%;
-      flex-basis: 33%;
-  width: 33%;
+  -ms-flex-preferred-size: calc(33% - 5px);
+      flex-basis: calc(33% - 5px);
+  width: calc(33% - 5px);
   height: 187px;
   padding-top: 60px;
   padding-left: 70px;
@@ -780,7 +781,6 @@ img {
 }
 .faq__quest--opened {
   border-bottom: 1px solid transparent;
-  padding-bottom: 0;
 }
 .faq__item {
   position: relative;
@@ -822,9 +822,6 @@ img {
 }
 .faq__answer {
   display: none;
-  -webkit-transition: all 600ms;
-  -o-transition: all 600ms;
-  transition: all 600ms;
 }
 /* Block - callback */
 .callback {
