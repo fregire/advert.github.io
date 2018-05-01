@@ -16,16 +16,11 @@ $(".projects__slider").on('afterChange', function(event, slick, currentSlide){
  	elemForCount.text(currentSlide + 1 + "/" + elemForCount.attr("data-length"));
 });
 
- // Окно прайс-листа 
-var closeBtn = $(".descr__close");
-for (i = 0; i < closeBtn.length; i++) {
-	$(closeBtn[i]).on("click", function () {
-		$(this).parent().css("display", "none");
-		$(".descr").siblings(".price__faq").mouseover(function() {
-			$(this).siblings(".descr").removeAttr("style");
-		});
-	});
-}
-$(".descr").mouseover(function() {
-	$(this).siblings(".price__faq:after").css("opacity", 1);
+ // Окно прайс-листа при закрытие
+$(".price__descr .descr__close").on("click", function() {
+	$(this).parent().css("display", "none");
+
+	setInterval(function() {
+		$(".price__descr").removeAttr("style");
+	}, 1000);
 });

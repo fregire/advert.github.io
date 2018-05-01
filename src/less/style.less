@@ -548,14 +548,13 @@ img {
 	cursor: pointer;
 }
 
-.price__faq:hover ~ .descr,
-.descr:hover {
+.price__faq:hover  .descr {
 	display: block;
 }
 .price__descr {
 	position: absolute;
-	left: 87.54037267080745%;
-	top: -35px;
+	left: calc(100% + 20px);
+	top: -168px;
 
 	padding-left: 19px;
 	padding-right: 19px;
@@ -584,9 +583,14 @@ img {
 	border-right: 15px solid #ffe400;
 }
 
+.price__descr--corner {
+	top: 40px;
+	transform: translate(-50%, 0);
+}
+
 .price__descr--corner:before {
 	top: -35px;
-	left: 230px;
+	left: 205px;
 
 	transform: rotate(90deg);
 
