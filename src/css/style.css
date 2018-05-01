@@ -645,3 +645,26 @@ img {
   height: 4px;
   background-color: #f9c720;
 }
+.feed-item__number {
+  float: left;
+  line-height: 103px;
+  font-size: 127px;
+  font-weight: 100;
+}
+.feed-item__number:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.feed-item__step-name {
+  margin: 0;
+  margin-bottom: 8px;
+}
+.feed-item__step-content {
+  margin: 0;
+  font-weight: 300;
+}
+.feed-item__step-content,
+.feed-item__step-name {
+  padding-left: 147px;
+}
