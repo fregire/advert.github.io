@@ -24,7 +24,6 @@ img {
   line-height: 1.625;
   color: #000;
   background-color: #eee;
-  height: 10000px;
 }
 /* Block - input */
 .input {
@@ -880,4 +879,15 @@ img {
   margin-bottom: 10px;
   font-weight: 500;
   font-size: 19px;
+}
+/* Footer */
+.footer {
+  height: 69px;
+  background-color: #28282a;
+}
+.footer__year {
+  max-width: 1170px;
+  margin: 0 auto;
+  color: #545454;
+  line-height: 69px;
 }
