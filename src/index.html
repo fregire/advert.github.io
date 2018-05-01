@@ -408,11 +408,11 @@
 					<p class="callback__descr">Мы всегда с удовольствием делимся своим опытом и знаниями. 
 					Расскажите нам о своем проекте, пожалуйста. Один из наших менеджеров свяжется с Вами в кратчайшие сроки и подготовит оптимальное предложение.</p>
 					<form action="#" class="form">
-						<label class="form__field">
+						<label class="form__field form__field--must">
 							<span class="form__name">Ваше имя</span>
 							<input class="input" type="text" name="name">
 						</label>
-						<label class="form__field">
+						<label class="form__field form__field--must">
 							<span class="form__name">Телефон</span>
 							<input class="input" type="tel" name="phone">
 						</label>
@@ -420,10 +420,12 @@
 							<span class="form__name">Email</span>
 							<input class="input" type="email" name="email">
 						</label>
-						<label class="form__field">
+						<label class="form__field form__field--last">
 							<span class="form__name">Сообщение</span>
 							<input class="input" type="text" name="message">
 						</label>
+						<div class="g-recaptcha" data-sitekey="6LeQclYUAAAAAG5R7zbRyrK3DdreAqkMFaLaeKCB"></div>
+						<button class="btn btn--form">Отправить заявку</button>
 					</form>
 				</div>
 				<div class="callback__contacts contacts">
@@ -445,7 +447,7 @@
 			</div>
 		</section>
 	</main>
-
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 	<script src="js/jquery.min.js"></script>
 
 	<script src="js/slick.min.js"></script>
