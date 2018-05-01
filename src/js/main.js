@@ -41,4 +41,11 @@ $(".faq__btn").on("click", function() {
 });
 
 // Формы 
-
+$("input").on("focus", function() {
+	$(this).siblings(".form__name").addClass("form__name--active");
+});
+$("input").on("blur", function() {
+	if($(this).val() == ""){
+		$(this).siblings(".form__name").removeClass("form__name--active");
+	}
+});

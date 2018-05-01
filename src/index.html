@@ -408,10 +408,22 @@
 					<p class="callback__descr">Мы всегда с удовольствием делимся своим опытом и знаниями. 
 					Расскажите нам о своем проекте, пожалуйста. Один из наших менеджеров свяжется с Вами в кратчайшие сроки и подготовит оптимальное предложение.</p>
 					<form action="#" class="form">
-						<div class="form__field">
-							<label class="form__name form__name--active" for="input__name">Ваше имя</label>
-							<input class="input" id="input__name" type="text">
-						</div>
+						<label class="form__field">
+							<span class="form__name">Ваше имя</span>
+							<input class="input" type="text" name="name">
+						</label>
+						<label class="form__field">
+							<span class="form__name">Телефон</span>
+							<input class="input" type="tel" name="phone">
+						</label>
+						<label class="form__field form__field--must">
+							<span class="form__name">Email</span>
+							<input class="input" type="email" name="email">
+						</label>
+						<label class="form__field">
+							<span class="form__name">Сообщение</span>
+							<input class="input" type="text" name="message">
+						</label>
 					</form>
 				</div>
 				<div class="callback__contacts contacts">
