@@ -158,8 +158,8 @@ img {
   height: 10px;
   display: inline-block;
   margin: 9px 13px;
-  background: url(../img/main-screen_arrow.png) no-repeat;
-  background-size: cover;
+  background: url(../img/icons_sprite.png) no-repeat;
+  background-position: -96px -5px;
 }
 /* Block - adv */
 .adv__inner {
@@ -631,12 +631,12 @@ img {
   top: 35px;
   right: 33px;
   width: 18px;
-  height: 17px;
+  height: 18px;
   display: block;
   border: none;
   outline: none;
-  background: url(../img/icon_close.png) no-repeat;
-  background-size: cover;
+  background: url(../img/icons_sprite.png) no-repeat;
+  background-position: -75px -1px;
   -webkit-transition: opacity 200ms;
   -o-transition: opacity 200ms;
   transition: opacity 200ms;
