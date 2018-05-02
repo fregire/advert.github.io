@@ -83,3 +83,32 @@ $(".menu__mobile").on("click", function() {
 	});
 	
 });
+
+// Плавный переход к секциям
+ $(".menu__list").on("click","a", function (event) {
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top}, 1000);
+});
+
+ // Переход к началу  страницы
+ $(window).scroll(function() {
+ 
+	if($(this).scrollTop() >= 200) {
+	 
+		$('.page__scroll').fadeIn();
+	 
+	} else {
+	 
+		$('.page__scroll').fadeOut();
+	 
+	}
+	 
+	});
+	 
+	$('.page__scroll').click(function() {
+	 
+	$('body,html').animate({scrollTop:0},800);
+ 
+});

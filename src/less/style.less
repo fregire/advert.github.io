@@ -33,6 +33,44 @@ img {
 	background-color: @mainBgPage;
 }
 
+.page__scroll {
+	position: fixed;
+	bottom: 40px;
+	right: 40px;
+	
+	display: none;
+	width: 50px;
+	height: 50px;
+
+	border-radius: 50%;
+	border: none;	
+	outline: none;
+	background-color: #EBEBEB;
+
+	transition: all 200ms;
+}
+
+.page__scroll:hover {
+	cursor: pointer;
+
+	background: #E0B015;
+}
+
+.page__scroll:after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	content: "";
+	display: block;
+	width: 30px;
+	height: 20px;
+
+	background: url(../img/scroll_arrow.png) no-repeat;
+	background-size: 30px;
+
+}
 /* Block - input */
 .input {
 	height: 30px;
@@ -131,7 +169,14 @@ img {
 	padding: 0 15px;
 	text-decoration: none;
 	color: #000;
+
+	transition: opacity 200ms;
 }
+
+.menu__link:hover {
+	opacity: .5;
+}
+
 .menu__list .menu__item:first-child .menu__link {
 	padding-left: 0;
 }
