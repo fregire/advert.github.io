@@ -107,7 +107,7 @@ $(".menu__mobile").on("click", function() {
 
 // Модальное окно 
 $(".modal__close").on("click", function() {
-	$(".modal").css("display", "none");
+	$(".modal").fadeOut();
 	$("html, body").css({
 		"overflow" : "auto",
 		"overflow-x" : "hidden"
@@ -117,7 +117,7 @@ $(".modal__close").on("click", function() {
 });
 
 $(".btn--header, .btn--main-screen").on("click", function() {
-	$(".modal").css("display", "block");
+	$(".modal").fadeIn(300);
 	$("html, body").css("overflow", "hidden");
 });
 
@@ -161,10 +161,13 @@ $(".callback .form").submit(function(e) {
 	if(validEmail == true && validTel == true && validName == true){
 		$.ajax({
 			type: "POST",
-			url: "js/mail.php",
+			url: "mail.php",
 			data: $(this).serialize()
 		}).done(function() {
-			alert("done");
+			$(".modal__form").css("opacity", "0");
+			$(".modal__success").addClass("modal__success--opened");
+			$(".input").val("");
+			$(".form__name").removeClass(".form__name--active");
 		});
 		return false;
 	}
@@ -211,7 +214,7 @@ $(".modal__form").submit(function(e) {
 	if(validEmail == true && validTel == true && validName == true){
 		$.ajax({
 			type: "POST",
-			url: "js/mail.php",
+			url: "mail.php",
 			data: $(this).serialize()
 		}).done(function() {
 			$(".modal__form").css("opacity", "0");

@@ -1,12 +1,14 @@
 <?php
 
 $recepient = "fregire@mail.ru";
-$sitename = "Название сайта";
+$siteName = "Ajax-форма";
 
 $name = trim($_POST["name"]);
 $phone = trim($_POST["phone"]);
-$text = trim($_POST["message"]);
-$message = "Имя: $name \nТелефон: $phone \nТекст: $message";
+$email = trim($_POST["email"]);
+$message = "Имя: $name \nТелефон: $phone \nEmail: $email";
 
-$pagetitle = "Новая заявка с сайта \"$sitename\"";
+$pagetitle = "Заявка с сайта \"$siteName\"";
 mail($recepient, $pagetitle, $message, "Content-type: text/plain; charset=\"utf-8\"\n From: $recepient");
+
+?>
