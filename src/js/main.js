@@ -76,6 +76,10 @@ $(".btn--form").on("click", function(e) {
 
 // Открытие меню 
 $(".menu__mobile").on("click", function() {
-	$(".menu__list").slideToggle();
+	$(".menu__list").slideToggle(300, function() {
+		if($(this).css("display") === "none"){
+			$(this).removeAttr("style");
+		}
+	});
 	
 });
