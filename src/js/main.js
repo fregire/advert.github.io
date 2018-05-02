@@ -64,53 +64,6 @@ $("input").on("blur", function() {
 $("input[type='tel']").mask("+7(999) 999-9999");
 
 
-// Проверка форм
-$(".btn--form").on("click", function(e) {
-	// var forms = $(".callback .input");
-	// // Минус 1 т.к. форма с сообщением не обязательна к заполнению
-	// for(var i = 0; i < forms.length - 1; i++ ){
-	// 	if($(forms[i]).val() == ""){
-	// 		$(forms[i]).siblings(".form__name").addClass("form__name--error");
-	// 	}
-	// 	e.preventDefault();
-	// };
-	var tel = $("input[name='phone']").val().split("");
-	var email = $("input[name='email']").val();
-	var name = $("input[name='name']").val().split("");
-	var message = $("input[name='message']").val();
-
-	//Регулярка для проверки mail
-	var emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-   
-
-	var validName, validTel, validEmail;
-	if(name.length < 3) {
-		$("input[name='name']").siblings(".form__name").addClass("form__name--error");
-		e.preventDefault();
-	
-	} else {
-		validName = true;
-		$("input[name='name']").siblings(".form__name").removeClass("form__name--error");
-	}
-
-	if(tel.length != 16) {
-		$("input[name='phone']").siblings(".form__name").addClass("form__name--error");
-		e.preventDefault();
-	} else {
-		validTel = true;
-		$("input[name='phone']").siblings(".form__name").removeClass("form__name--error");
-	}
-
-	if(emailReg.test(email) == false){
-		$("input[name='email']").siblings(".form__name").addClass("form__name--error");
-		e.preventDefault();
-	} else {
-		validEmail = true;
-		$("input[name='email']").siblings(".form__name").removeClass("form__name--error");
-	}
-
-	
-});
 
 // Открытие меню 
 $(".menu__mobile").on("click", function() {
@@ -129,6 +82,7 @@ $(".menu__mobile").on("click", function() {
             top = $(id).offset().top;
         $('body,html').animate({scrollTop: top}, 1000);
 });
+
 
  // Переход к началу  страницы
  $(window).scroll(function() {
@@ -158,6 +112,8 @@ $(".modal__close").on("click", function() {
 		"overflow" : "auto",
 		"overflow-x" : "hidden"
 	});
+	$(".modal__success").removeClass("modal__success--opened");
+	$(".modal__form").css("opacity", "1");
 });
 
 $(".btn--header, .btn--main-screen").on("click", function() {
@@ -166,15 +122,105 @@ $(".btn--header, .btn--main-screen").on("click", function() {
 });
 
 // Отправка формы 
-$(".modal__form").submit(function() {
+$(".callback .form").submit(function(e) {
+	// Проверка форм
+	var tel = $(".callback input[name='phone']").val().split("");
+	var email = $(".callback input[name='email']").val();
+	var name = $(".callback input[name='name']").val().split("");
+	var message = $(".callback input[name='message']").val();
+	//Регулярка для проверки mail
+	var emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+   
+
+	var validName, validTel, validEmail;
+	if(name.length < 3) {
+		$(".callback input[name='name']").siblings(".form__name").addClass("form__name--error");
+		e.preventDefault();
+	
+	} else {
+		validName = true;
+		$(".callback input[name='name']").siblings(".form__name").removeClass("form__name--error");
+	}
+
+	if(tel.length != 16) {
+		$(".callback input[name='phone']").siblings(".form__name").addClass("form__name--error");
+		e.preventDefault();
+	} else {
+		validTel = true;
+		$(".callback input[name='phone']").siblings(".form__name").removeClass("form__name--error");
+	}
+
+	if(emailReg.test(email) == false){
+		$(".callback input[name='email']").siblings(".form__name").addClass("form__name--error");
+		e.preventDefault();
+	} else {
+		validEmail = true;
+		$(".callback input[name='email']").siblings(".form__name").removeClass("form__name--error");
+	}
+
+	if(validEmail == true && validTel == true && validName == true){
 		$.ajax({
 			type: "POST",
-			url: "../mail.php",
+			url: "js/mail.php",
 			data: $(this).serialize()
 		}).done(function() {
-			$(this).find("input").val("");
-			alert("Спасибо за заявку! Скоро мы с вами свяжемся.");
-			$("#form").trigger("reset");
+			alert("done");
 		});
 		return false;
+	}
+
+		
+});
+
+$(".modal__form").submit(function(e) {
+	// Проверка форм
+	var tel = $(".modal__form input[name='phone']").val().split("");
+	var email = $(".modal__form input[name='email']").val();
+	var name = $(".modal__form input[name='name']").val().split("");
+	var message = $(".modal__form input[name='message']").val();
+	//Регулярка для проверки mail
+	var emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+   
+
+	var validName, validTel, validEmail;
+	if(name.length < 3) {
+		$(".modal__form input[name='name']").siblings(".form__name").addClass("form__name--error");
+		e.preventDefault();
+	
+	} else {
+		validName = true;
+		$(".modal__form input[name='name']").siblings(".form__name").removeClass("form__name--error");
+	}
+
+	if(tel.length != 16) {
+		$(".modal__form input[name='phone']").siblings(".form__name").addClass("form__name--error");
+		e.preventDefault();
+	} else {
+		validTel = true;
+		$(".modal__form input[name='phone']").siblings(".form__name").removeClass("form__name--error");
+	}
+
+	if(emailReg.test(email) == false){
+		$(".modal__form input[name='email']").siblings(".form__name").addClass("form__name--error");
+		e.preventDefault();
+	} else {
+		validEmail = true;
+		$(".modal__form input[name='email']").siblings(".form__name").removeClass("form__name--error");
+	}
+
+	if(validEmail == true && validTel == true && validName == true){
+		$.ajax({
+			type: "POST",
+			url: "js/mail.php",
+			data: $(this).serialize()
+		}).done(function() {
+			$(".modal__form").css("opacity", "0");
+			$(".modal__success").addClass("modal__success--opened");
+			$(".input").val("");
+			$(".form__name").removeClass(".form__name--active");
+		});
+		return false;
+	}
+
+		
 });
