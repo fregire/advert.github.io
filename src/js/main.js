@@ -7,6 +7,7 @@ for(var i = 0; i < sliders.length; i++) {
 }
 // Добавление своих кастомных стрелок для слайдеров
 $(".projects__slider").slick({
+	slidesToShow: 1,
 	prevArrow: '<svg class="projects__arrow projects__arrow--prev" width="11" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.5 20.1"><path class="projects__arrow-path" fill="none" stroke="#828181" stroke-miterlimit="10" d="M10.2 19.5L.9 10.2 10.2.5"/></svg>',
     nextArrow: '<svg class="projects__arrow projects__arrow--next" width="11" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.6 19.9"><path class="projects__arrow-path" fill="none" stroke="#828181" stroke-miterlimit="10" d="M.5.4l9.3 9.3-9.3 9.8"/></svg>'
 });
@@ -27,6 +28,7 @@ $(".price__descr .descr__close").on("click", function() {
 
 // Слайдеры для отзывов и шагов
 $(".feed-item__slider").slick({
+	slidesToShow: 1,
 	nextArrow: "<div class='feed-item__arrow feed-item__arrow--next'><svg width='10' height='20' xmlns='http://www.w3.org/2000/svg'><path fill='none' stroke='#000' stroke-miterlimit='10' d='M0 20l10-10M0 0l10 10.7'/></svg></div>",
 	prevArrow: "<div class='feed-item__arrow feed-item__arrow--prev'><svg width='10' height='20' xmlns='http://www.w3.org/2000/svg'><path fill='none' stroke='#000' stroke-miterlimit='10' d='M10 0L0 10m10 10L0 9.3'/></svg></div>"
 });
@@ -59,7 +61,7 @@ $("input").on("blur", function() {
 	}
 });
 // Маска для телефона 
-$("#phone").mask("+7(999) 999-9999");
+$("input[type='tel']").mask("+7(999) 999-9999");
 
 
 // Проверка форм
@@ -111,4 +113,17 @@ $(".menu__mobile").on("click", function() {
 	 
 	$('body,html').animate({scrollTop:0},800);
  
+});
+
+// Модальное окно 
+$(".modal__close").on("click", function() {
+	$(".modal").css("display", "none");
+});
+
+$(".btn--header").on("click", function() {
+	$(".modal").css("display", "block");
+});
+
+$(".btn--main-screen").on("click", function() {
+	$(".modal").css("display", "block");
 });

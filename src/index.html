@@ -468,6 +468,29 @@
 		<p class="footer__year">&copy; 2018</p>
 	</footer>
 	<button class="page__scroll"><span class="visually-hidden">Наверх</span></button>
+	<div class="modal">
+		<form action="#" class="modal__form form">
+						<label class="form__field form__field--must">
+							<span class="form__name">Ваше имя</span>
+							<input class="input input--modal" type="text" name="name">
+						</label>
+						<label class="form__field form__field--must">
+							<span class="form__name">Телефон</span>
+							<input class="input input--modal" id="phone" type="tel" name="phone">
+						</label>
+						<label class="form__field form__field--must">
+							<span class="form__name">Email</span>
+							<input class="input input--modal" type="text" name="email">
+						</label>
+						<label class="form__field form__field--last">
+							<span class="form__name">Сообщение</span>
+							<input class="input input--modal" type="text" name="message">
+						</label>
+						<div class="g-recaptcha" data-sitekey="6LeQclYUAAAAAG5R7zbRyrK3DdreAqkMFaLaeKCB"></div>
+						<button class="form__btn btn btn--form">Отправить заявку</button>
+						<span class="modal__close"><span class="visually-hidden">Закрыть окно</span></span>
+		</form>
+	</div>
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 	<script src="js/libs.js"></script>
 
