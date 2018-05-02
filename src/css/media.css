@@ -263,6 +263,10 @@
     width: 95vw;
     padding: 40px 30px;
   }
+  .page__scroll {
+    bottom: 55px;
+    right: 40px;
+  }
 }
 @media screen and (max-width: 320px) {
   .modal .g-recaptcha {
