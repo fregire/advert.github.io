@@ -98,6 +98,7 @@ img {
 	padding: 80px 50px;
 
 	background-color: #fff;
+	// visibility: hidden;
 }
 
 .modal__close {
@@ -116,6 +117,23 @@ img {
 .modal__close:hover {
 	opacity: .9;
 	cursor: pointer;
+}
+
+.modal__success {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	width: 600px;
+	height: 300px;
+	background-color: #fff;
+	padding: 20px;
+
+	text-align: center;
+
+	opacity: 0;
+	z-index: -1;
 }
 /* Block - input */
 .input {
@@ -179,6 +197,10 @@ img {
 
 	font-size: 38px;
 	line-height: 0.63;
+}
+
+.headline--success {
+	font-size: 20px;
 }
 /* Block - header */
 .header {
@@ -885,6 +907,8 @@ img {
 	padding-bottom: 130px;
 
 	line-height: 24px;
+
+	overflow-x: hidden;
 }
 
 .feed-item--steps {
@@ -923,13 +947,14 @@ img {
 
 .feed-item__slider {
 	position: relative;
+	
+	height: 200px;
 
-	height: 100%;
 }
 
 .feed-item__arrow {
 	position: absolute;
-	bottom: -7px;
+	bottom: -130px;
 
 	width: 87px;
 	height: 82px;

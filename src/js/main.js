@@ -118,12 +118,13 @@ $(".menu__mobile").on("click", function() {
 // Модальное окно 
 $(".modal__close").on("click", function() {
 	$(".modal").css("display", "none");
+	$("html, body").css({
+		"overflow" : "auto",
+		"overflow-x" : "hidden"
+	});
 });
 
-$(".btn--header").on("click", function() {
+$(".btn--header, .btn--main-screen").on("click", function() {
 	$(".modal").css("display", "block");
-});
-
-$(".btn--main-screen").on("click", function() {
-	$(".modal").css("display", "block");
+	$("html, body").css("overflow", "hidden");
 });

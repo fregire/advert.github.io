@@ -147,8 +147,12 @@
 	}
 
 	.callback__inner {
-		padding-left: 40px;
-		padding-right: 40px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.stats__num {
+		width: 50%;
 	}
 }
 
@@ -238,6 +242,16 @@
 		bottom: 14px;
 	}
 	
+	.stats__num {
+		width: 100%;
+	}
+
+	.feed-item {
+		min-height: 600px;
+	}
+	.feed-item__arrow {
+		bottom: -215px;
+	}
 	.feed-item__number {
 		font-size: 100px;
 	}
@@ -248,6 +262,9 @@
 	.faq__quest {
 		padding-right: 40px;
 		font-size: 20px;
+	}
+	.descr {
+		width: 100vw;
 	}
 	
 	.form {
@@ -268,6 +285,11 @@
 	}
 }
 
+@media screen and (max-width: 320px) {
+	.modal .g-recaptcha {
+		margin-left: -29px;
+	}
+}
 @media screen and (min-width: 991px) {
 	.menu__list {
 		display: flex!important;

@@ -142,8 +142,11 @@
     padding: 0 20px;
   }
   .callback__inner {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .stats__num {
+    width: 50%;
   }
 }
 @media screen and (max-width: 700px) {
@@ -223,6 +226,15 @@
   .projects__link {
     bottom: 14px;
   }
+  .stats__num {
+    width: 100%;
+  }
+  .feed-item {
+    min-height: 600px;
+  }
+  .feed-item__arrow {
+    bottom: -215px;
+  }
   .feed-item__number {
     font-size: 100px;
   }
@@ -233,6 +245,9 @@
   .faq__quest {
     padding-right: 40px;
     font-size: 20px;
+  }
+  .descr {
+    width: 100vw;
   }
   .form {
     text-align: center;
@@ -247,6 +262,11 @@
   .modal__form {
     width: 95vw;
     padding: 40px 30px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .modal .g-recaptcha {
+    margin-left: -29px;
   }
 }
 @media screen and (min-width: 991px) {
