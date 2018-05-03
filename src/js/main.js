@@ -161,7 +161,7 @@ $(".callback .form").submit(function(e) {
 	if(validEmail == true && validTel == true && validName == true){
 		$.ajax({
 			type: "POST",
-			url: "mail.php",
+			url: "js/mail.php",
 			data: $(this).serialize()
 		}).done(function() {
 			$(".modal__form").css("opacity", "0");

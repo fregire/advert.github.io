@@ -1,4 +1,7 @@
 @media screen and (max-width: 1142px) {
+  .header {
+    width: 100vw;
+  }
   .header__inner {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -260,9 +263,15 @@
   }
   .modal {
     width: 100vw;
+    padding: 10px;
     overflow-x: hidden;
+    overflow-y: auto;
   }
   .modal__form {
+    position: static;
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
     width: 95vw;
     padding: 40px 30px;
   }
