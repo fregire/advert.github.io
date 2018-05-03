@@ -116,7 +116,7 @@ $(".modal__close").on("click", function() {
 	$(".modal__form").css("opacity", "1");
 });
 
-$(".btn--header, .btn--main-screen").on("click", function() {
+$(".btn--header, .btn--main-screen, .price__call-to-action").on("click", function() {
 	$(".modal").fadeIn(300);
 	$("html, body").css("overflow", "hidden");
 });
@@ -164,18 +164,11 @@ $(".callback .form").submit(function(e) {
 		$(".callback input[name='email']").siblings(".form__name").removeClass("form__name--error");
 	}
 
-	// if(captcha == ""){
-	// 	$(".callback .g-recaptcha").css("border", "1px solid red");
-	// 	e.preventDefault();
-	// } else {
-	// 	validCaptcha = true;
-	// }
 
 	if(validEmail == true && validTel == true && validName == true){
 		$.ajax({
 			type: "POST",
 			url: "mail.php",
-			dataType: "json",
 			data: $(this).serialize()
 		}).done(function() {
 			$(".modal__success").fadeIn();
@@ -227,13 +220,6 @@ $(".modal__form").submit(function(e) {
 		$(".modal__form input[name='email']").siblings(".form__name").removeClass("form__name--error");
 	}
 
-	// if(captcha == ""){
-	// 	$(".modal__form .g-recaptcha").css("border", "1px solid red");
-	// 	e.preventDefault();
-	// } else {
-	// 	validCaptcha = true;
-	// }
-	// alert(captcha);
 	if(validEmail == true && validTel == true && validName == true){
 		$.ajax({
 			type: "POST",
@@ -243,7 +229,8 @@ $(".modal__form").submit(function(e) {
 			$(".modal").fadeOut();
 			$(".modal__success").fadeIn();
 			$(".input").val("");
-			$(".form__name").removeClass(".form__name--active");
+			$(".input").blur();
+			console.log(grecaptcha);
 			grecaptcha.reset();
 		});
 		return false;
