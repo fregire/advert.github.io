@@ -441,7 +441,7 @@
 							<span class="form__name">Сообщение</span>
 							<input class="input" type="text" name="message">
 						</label>
-						<div class="g-recaptcha" data-sitekey="6LcKEFcUAAAAAO3kDqbGPJuoCvI9TCcnjH52HQdZ"></div>
+						<div class="g-recaptcha" id="g-recaptcha1"></div>
 						<button class="form__btn btn btn--form">Отправить заявку</button>
 					</form>
 				</div>
@@ -486,7 +486,7 @@
 							<span class="form__name">Сообщение</span>
 							<input class="input input--modal" type="text" name="message">
 						</label>
-						<div class="g-recaptcha" data-sitekey="6LcKEFcUAAAAAO3kDqbGPJuoCvI9TCcnjH52HQdZ"></div>
+						<div class="g-recaptcha" id="g-recaptcha2"></div>
 						<button class="form__btn btn btn--form">Отправить заявку</button>
 						<span class="modal__close"><span class="visually-hidden">Закрыть окно</span></span>
 		</form>
@@ -496,12 +496,21 @@
 			<h2 class="headline headline--success">Ваше письмо успешно отправлено!</h2>
 				<span class="modal__close"><span class="visually-hidden">Закрыть окно</span></span>
 	</div>
-	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<script src='https://www.google.com/recaptcha/api.js?onload=onLoadHandler&render=explicit'></script>
 	<script src="js/libs.js"></script>
 
 	<script src="js/main.js"></script>
-
 	<script>
+		 var onLoadHandler = function() {
+        var captcha1 = grecaptcha.render('g-recaptcha1', {
+            'sitekey': '6LcKEFcUAAAAAO3kDqbGPJuoCvI9TCcnjH52HQdZ',
+            'theme': 'light'
+        });
+        var captcha2 = grecaptcha.render('g-recaptcha2', {
+            'sitekey': '6LcKEFcUAAAAAO3kDqbGPJuoCvI9TCcnjH52HQdZ',
+            'theme': 'light'
+        });
+    };
 	</script>
 </body>
 </html>

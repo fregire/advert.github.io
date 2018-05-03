@@ -1,12 +1,21 @@
 <?php
-if($_POST['g-recaptcha-response']) {
-  $captcha = $_POST['g-recaptcha-response'];
-  $secret = "6Le7tlYUAAAAAPzR4cjmIaf8CZhxiEhDz6CH7SsE";
+$captcha = $_POST['g-recaptcha-response'];
+$google_url="https://www.google.com/recaptcha/api/siteverify";
+const GOOGLE_RECAPTCHA_PRIVATE_KEY = '6LcKEFcUAAAAAO283cys6WV_GnIBa8eIf3YmsXTa';
 
+if (isset($_POST['g-recaptcha-response'])) {
+    $params = [
+        'secret' => GOOGLE_RECAPTCHA_PRIVATE_KEY,
+        'response' => $_POST['g-recaptcha-response'],
+        'remoteip' => $_SERVER['REMOTE_ADDR']
+    ];
+    $curl = curl_init('https://www.google.com/recaptcha/api/siteverify?' . http_build_query($params));
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    $response = json_decode(curl_exec($curl));
+    curl_close($curl);
 }
-  $json = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=". $secret . "&response=" . $captcha), true);
 
-$recepient = "web-t9r1s@mail-tester.com";
+$recepient = "fregire@mail.ru";
 $siteName = "Ajax-форма";
 
 $name = trim($_POST["name"]);

@@ -133,6 +133,60 @@ $(".page").on("click", function() {
 
 $(".modal").on("click", $(".modal").fadeOut());
 // Отправка формы 
+$(".modal__form").submit(function(e) {
+	// Проверка форм
+	var tel = $(".modal__form input[name='phone']").val().split("");
+	var email = $(".modal__form input[name='email']").val();
+	var name = $(".modal__form input[name='name']").val().split("");
+	var message = $(".modal__form input[name='message']").val();
+	var captcha = grecaptcha.getResponse();
+	//Регулярка для проверки mail
+	var emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+   
+
+	var validName, validTel, validEmail, validCaptcha;
+	if(name.length < 3) {
+		$(".modal__form input[name='name']").siblings(".form__name").addClass("form__name--error");
+		e.preventDefault();
+	
+	} else {
+		validName = true;
+		$(".modal__form input[name='name']").siblings(".form__name").removeClass("form__name--error");
+	}
+
+	if(tel.length != 16) {
+		$(".modal__form input[name='phone']").siblings(".form__name").addClass("form__name--error");
+		e.preventDefault();
+	} else {
+		validTel = true;
+		$(".modal__form input[name='phone']").siblings(".form__name").removeClass("form__name--error");
+	}
+
+	if(emailReg.test(email) == false){
+		$(".modal__form input[name='email']").siblings(".form__name").addClass("form__name--error");
+		e.preventDefault();
+	} else {
+		validEmail = true;
+		$(".modal__form input[name='email']").siblings(".form__name").removeClass("form__name--error");
+	}
+
+	if(validEmail == true && validTel == true && validName == true){
+		$.ajax({
+			type: "POST",
+			url: "mail.php",
+			data: $(this).serialize()
+		}).done(function() {
+			grecaptcha.reset();
+			$(".modal").fadeOut();
+			$(".modal__success").fadeIn();
+			$(".input").val("");
+			$(".input").blur();
+		});
+		return false;
+	}
+
+		
+});
 $(".callback .form").submit(function(e) {
 	// Проверка форм
 	var tel = $(".callback input[name='phone']").val().split("");
@@ -189,58 +243,4 @@ $(".callback .form").submit(function(e) {
 
 		
 });	
-$(".modal__form").submit(function(e) {
-	// Проверка форм
-	var tel = $(".modal__form input[name='phone']").val().split("");
-	var email = $(".modal__form input[name='email']").val();
-	var name = $(".modal__form input[name='name']").val().split("");
-	var message = $(".modal__form input[name='message']").val();
-	var captcha = grecaptcha.getResponse();
-	//Регулярка для проверки mail
-	var emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-   
 
-	var validName, validTel, validEmail, validCaptcha;
-	if(name.length < 3) {
-		$(".modal__form input[name='name']").siblings(".form__name").addClass("form__name--error");
-		e.preventDefault();
-	
-	} else {
-		validName = true;
-		$(".modal__form input[name='name']").siblings(".form__name").removeClass("form__name--error");
-	}
-
-	if(tel.length != 16) {
-		$(".modal__form input[name='phone']").siblings(".form__name").addClass("form__name--error");
-		e.preventDefault();
-	} else {
-		validTel = true;
-		$(".modal__form input[name='phone']").siblings(".form__name").removeClass("form__name--error");
-	}
-
-	if(emailReg.test(email) == false){
-		$(".modal__form input[name='email']").siblings(".form__name").addClass("form__name--error");
-		e.preventDefault();
-	} else {
-		validEmail = true;
-		$(".modal__form input[name='email']").siblings(".form__name").removeClass("form__name--error");
-	}
-
-	if(validEmail == true && validTel == true && validName == true){
-		$.ajax({
-			type: "POST",
-			url: "mail.php",
-			data: $(this).serialize()
-		}).done(function() {
-			$(".modal").fadeOut();
-			$(".modal__success").fadeIn();
-			$(".input").val("");
-			$(".input").blur();
-			console.log(grecaptcha);
-			grecaptcha.reset();
-		});
-		return false;
-	}
-
-		
-});
