@@ -6,7 +6,7 @@ if($_POST['g-recaptcha-response']) {
 }
   $json = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=". $secret . "&response=" . $captcha), true);
 
-$recepient = "fregire@mail.ru";
+$recepient = "web-t9r1s@mail-tester.com";
 $siteName = "Ajax-форма";
 
 $name = trim($_POST["name"]);

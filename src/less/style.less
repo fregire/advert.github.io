@@ -32,6 +32,7 @@ img {
 	font-size: 16px;
 	line-height: 1.625;
 	color: #000;
+	opacity: .99;
 
 	background-color: @mainBgPage;
 }
@@ -181,6 +182,8 @@ img {
 	font-size: 14px;
 
 	background-color: #d1d1d1;
+
+	transition: all 200ms;
 }
 .btn--main-screen {
 	height: 62px;
@@ -211,10 +214,24 @@ img {
 	
 	z-index: 999;
 	
+	height: 60px;
 	line-height: 58px;
 	font-stretch: expanded;
 	background: #fff;
+
+	transition: all 200ms;
 }
+
+.header--less {
+	height: 50px;
+
+	line-height: 50px;
+}
+
+.header--less .btn--header {
+	height: 50px;
+}
+
 
 .header__inner {
 	display: flex;
@@ -264,7 +281,7 @@ img {
 
 .menu__mobile {
 	display: none;
-	height: 35px;
+	height: 42px;
 	width: 40px;
 
 	background-color: transparent;

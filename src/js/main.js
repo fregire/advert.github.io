@@ -81,6 +81,7 @@ $(".menu__mobile").on("click", function() {
         var id  = $(this).attr('href'),
             top = $(id).offset().top;
         $('body,html').animate({scrollTop: top}, 1000);
+        $(".menu__list").slideUp();
 });
 
 
@@ -96,7 +97,12 @@ $(".menu__mobile").on("click", function() {
 		$('.page__scroll').fadeOut();
 	 
 	}
-	 
+	if($(this).scrollTop() >= 58) {
+		$(".header").addClass("header--less");
+	} else {
+		$(".header").removeClass("header--less");
+
+	}
 	});
 	 
 	$('.page__scroll').click(function() {
