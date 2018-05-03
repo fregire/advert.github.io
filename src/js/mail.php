@@ -1,7 +1,7 @@
 <?php
 $captcha = $_POST['g-recaptcha-response'];
 $google_url="https://www.google.com/recaptcha/api/siteverify";
-const GOOGLE_RECAPTCHA_PRIVATE_KEY = '6LcKEFcUAAAAAO283cys6WV_GnIBa8eIf3YmsXTa';
+const GOOGLE_RECAPTCHA_PRIVATE_KEY = '6Le7tlYUAAAAAPzR4cjmIaf8CZhxiEhDz6CH7SsE';
 
 if (isset($_POST['g-recaptcha-response'])) {
     $params = [
