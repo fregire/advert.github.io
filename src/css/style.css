@@ -96,7 +96,8 @@ img {
   cursor: pointer;
 }
 .modal__success {
-  position: absolute;
+  display: none;
+  position: fixed;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -107,12 +108,7 @@ img {
   background-color: #fff;
   padding: 20px;
   text-align: center;
-  opacity: 0;
-  z-index: -1;
-}
-.modal__success--opened {
-  opacity: 1;
-  z-index: 999;
+  z-index: 20;
 }
 /* Block - input */
 .input {
@@ -552,19 +548,7 @@ img {
   font-size: 20px;
 }
 .price__call-to-action {
-  position: relative;
   color: #000;
-  text-decoration: none;
-}
-.price__call-to-action:after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 1px;
-  width: 100%;
-  display: block;
-  content: "";
-  background-color: #000;
 }
 .price__list {
   padding: 0;
@@ -1024,9 +1008,11 @@ img {
   color: #9f9f9f;
 }
 .g-recaptcha {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: inline-block;
   vertical-align: middle;
-  margin-right: 29px;
+  margin-right: 10px;
 }
 /* Block - contacts */
 .contacts {

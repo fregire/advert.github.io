@@ -112,7 +112,7 @@ $(".modal__close").on("click", function() {
 		"overflow" : "auto",
 		"overflow-x" : "hidden"
 	});
-	$(".modal__success").removeClass("modal__success--opened");
+	$(".modal__success").fadeOut();
 	$(".modal__form").css("opacity", "1");
 });
 
@@ -121,6 +121,11 @@ $(".btn--header, .btn--main-screen").on("click", function() {
 	$("html, body").css("overflow", "hidden");
 });
 
+$(".page").on("click", function() {
+	$(".modal__success").fadeOut();
+});
+
+$(".modal").on("click", $(".modal").fadeOut());
 // Отправка формы 
 $(".callback .form").submit(function(e) {
 	// Проверка форм
@@ -128,11 +133,12 @@ $(".callback .form").submit(function(e) {
 	var email = $(".callback input[name='email']").val();
 	var name = $(".callback input[name='name']").val().split("");
 	var message = $(".callback input[name='message']").val();
+	var captcha = grecaptcha.getResponse();
 	//Регулярка для проверки mail
 	var emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
    
 
-	var validName, validTel, validEmail;
+	var validName, validTel, validEmail, validCaptcha;
 	if(name.length < 3) {
 		$(".callback input[name='name']").siblings(".form__name").addClass("form__name--error");
 		e.preventDefault();
@@ -158,34 +164,44 @@ $(".callback .form").submit(function(e) {
 		$(".callback input[name='email']").siblings(".form__name").removeClass("form__name--error");
 	}
 
+	// if(captcha == ""){
+	// 	$(".callback .g-recaptcha").css("border", "1px solid red");
+	// 	e.preventDefault();
+	// } else {
+	// 	validCaptcha = true;
+	// }
+
 	if(validEmail == true && validTel == true && validName == true){
 		$.ajax({
 			type: "POST",
-			url: "js/mail.php",
+			url: "mail.php",
+			dataType: "json",
 			data: $(this).serialize()
 		}).done(function() {
-			$(".modal__form").css("opacity", "0");
-			$(".modal__success").addClass("modal__success--opened");
+			$(".modal__success").fadeIn();
+			$(".modal").fadeOut();
 			$(".input").val("");
+			$(".input").blur();
 			$(".form__name").removeClass(".form__name--active");
+			grecaptcha.reset();
 		});
 		return false;
 	}
 
 		
-});
-
+});	
 $(".modal__form").submit(function(e) {
 	// Проверка форм
 	var tel = $(".modal__form input[name='phone']").val().split("");
 	var email = $(".modal__form input[name='email']").val();
 	var name = $(".modal__form input[name='name']").val().split("");
 	var message = $(".modal__form input[name='message']").val();
+	var captcha = grecaptcha.getResponse();
 	//Регулярка для проверки mail
 	var emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
    
 
-	var validName, validTel, validEmail;
+	var validName, validTel, validEmail, validCaptcha;
 	if(name.length < 3) {
 		$(".modal__form input[name='name']").siblings(".form__name").addClass("form__name--error");
 		e.preventDefault();
@@ -211,16 +227,24 @@ $(".modal__form").submit(function(e) {
 		$(".modal__form input[name='email']").siblings(".form__name").removeClass("form__name--error");
 	}
 
+	// if(captcha == ""){
+	// 	$(".modal__form .g-recaptcha").css("border", "1px solid red");
+	// 	e.preventDefault();
+	// } else {
+	// 	validCaptcha = true;
+	// }
+	// alert(captcha);
 	if(validEmail == true && validTel == true && validName == true){
 		$.ajax({
 			type: "POST",
 			url: "mail.php",
 			data: $(this).serialize()
 		}).done(function() {
-			$(".modal__form").css("opacity", "0");
-			$(".modal__success").addClass("modal__success--opened");
+			$(".modal").fadeOut();
+			$(".modal__success").fadeIn();
 			$(".input").val("");
 			$(".form__name").removeClass(".form__name--active");
+			grecaptcha.reset();
 		});
 		return false;
 	}

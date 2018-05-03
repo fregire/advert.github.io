@@ -193,8 +193,8 @@
   }
 }
 @media screen and (max-width: 480px) {
-  .page {
-    padding-top: 116px;
+  .btn--header {
+    display: none;
   }
   .headline {
     font-size: 34px;
@@ -274,6 +274,9 @@
             transform: translate(0, 0);
     width: 95vw;
     padding: 40px 30px;
+  }
+  .modal__success {
+    width: 90%;
   }
   .page__scroll {
     bottom: 55px;

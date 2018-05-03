@@ -120,7 +120,8 @@ img {
 }
 
 .modal__success {
-	position: absolute;
+	display: none;
+	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -131,15 +132,9 @@ img {
 	padding: 20px;
 
 	text-align: center;
-
-	opacity: 0;
-	z-index: -1;
+	z-index: 20;
 }
 
-.modal__success--opened {
-	opacity: 1;
-	z-index: 999;
-}
 /* Block - input */
 .input {
 	height: 30px;
@@ -642,24 +637,10 @@ img {
 }
 
 .price__call-to-action {
-	position: relative;
-
 	color: #000;
-	text-decoration: none;
 }
 
-.price__call-to-action:after {
-	position: absolute;
-	bottom: 0;
-	left: 0;
 
-	height: 1px;
-	width: 100%;
-	display: block;
-	content: "";
-
-	background-color: #000;
-}
 
 .price__list {
 	padding: 0;
@@ -1212,9 +1193,10 @@ img {
 }
 
 .g-recaptcha {
+	box-sizing: border-box;
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: 29px;
+	margin-right: 10px;
 }
 
 
