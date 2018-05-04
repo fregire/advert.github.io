@@ -15,7 +15,7 @@ if (isset($_POST['g-recaptcha-response'])) {
     curl_close($curl);
 }
 
-$recepient = "fregire@mail.ru";
+$recepient = "fkostya@mail.ru";
 $siteName = "Ajax-форма";
 
 $name = trim($_POST["name"]);
@@ -23,7 +23,12 @@ $phone = trim($_POST["phone"]);
 $email = trim($_POST["email"]);
 $message = "Имя: $name \nТелефон: $phone \nEmail: $email";
 
+$headers = 'From: $recepient' . "\r\n" .
+    'Reply-To: $recepient' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+
 $pagetitle = "Заявка с сайта \"$siteName\"";
-mail($recepient, $pagetitle, $message, "Content-type: text/plain; charset=\"utf-8\"\n From: $recepient");
+mail($recepient, $pagetitle, $message, $headers);
 
 ?>
