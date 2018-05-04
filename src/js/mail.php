@@ -21,7 +21,8 @@ $siteName = "Ajax-форма";
 $name = trim($_POST["name"]);
 $phone = trim($_POST["phone"]);
 $email = trim($_POST["email"]);
-$message = "Имя: $name \nТелефон: $phone \nEmail: $email";
+$message = trim($_POST["message"]);
+$messageMain = "Имя: $name \nТелефон: $phone \nEmail: $email \nСообщение: $message";
 
 $headers = 'From: $recepient' . "\r\n" .
     'Reply-To: $recepient' . "\r\n" .
@@ -29,6 +30,6 @@ $headers = 'From: $recepient' . "\r\n" .
 
 
 $pagetitle = "Заявка с сайта \"$siteName\"";
-mail($recepient, $pagetitle, $message, $headers);
+mail($recepient, $pagetitle, $messageMain, $headers);
 
 ?>
