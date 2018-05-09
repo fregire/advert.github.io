@@ -439,19 +439,11 @@ img {
 .projects__descr {
   margin-bottom: 32px;
 }
-.projects__examples {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
 .projects__example {
   position: relative;
-  width: 421px;
+  display: inline-block;
+  vertical-align: top;
+  width: 33%;
   margin-top: 12px;
 }
 .projects__slider,

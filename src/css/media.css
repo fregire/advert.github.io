@@ -118,6 +118,9 @@
         flex-basis: 100%;
     width: 100%;
   }
+  .projects__example {
+    width: 49%;
+  }
 }
 @media screen and (max-width: 826px) {
   .main-screen__text {
@@ -129,12 +132,15 @@
   .projects__header {
     width: 80%;
   }
+  .projects__examples {
+    text-align: center;
+  }
   .projects__example {
     width: 80%;
   }
   .projects__slider,
   .projects__pict {
-    height: 400px;
+    height: 300px;
   }
   .price__item {
     -ms-flex-preferred-size: 100%;
