@@ -505,15 +505,13 @@ img {
 	margin-bottom: 32px;
 }
 
-.projects__examples {
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-}
 
 .projects__example {
 	position: relative;
-	width: 421px;
+	
+	display: inline-block;
+	vertical-align: top;
+	width: 33%;
 	margin-top: 12px;
 }
 
@@ -669,10 +667,9 @@ img {
 
 .price__item {
 	position: relative;
-
-	flex: 1;
-	flex-basis: calc(33% - 5px);
-	width: calc(33% - 5px);	
+	
+	flex-basis: calc(33.3333%);
+	width: calc(33.3333%);	
 	height: 187px;
 	padding-top: 60px;
 	padding-left: 70px;
