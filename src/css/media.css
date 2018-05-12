@@ -293,6 +293,22 @@
   .modal .g-recaptcha {
     margin-left: -29px;
   }
+  .price__item {
+    height: auto;
+    padding-bottom: 15px;
+    padding-right: 40px;
+    padding-left: 50px;
+  }
+  .price__faq {
+    display: block;
+    margin-top: 10px;
+  }
+  .price__descr {
+    left: 80px;
+  }
+  .price__descr:before {
+    left: 65px;
+  }
 }
 @media screen and (min-width: 991px) {
   .menu__list {
