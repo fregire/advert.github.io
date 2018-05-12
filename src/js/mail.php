@@ -1,36 +1,14 @@
 <?php
-// $captcha = $_POST['g-recaptcha-response'];
-// $google_url="https://www.google.com/recaptcha/api/siteverify";
-// const GOOGLE_RECAPTCHA_PRIVATE_KEY = '6Le7tlYUAAAAAPzR4cjmIaf8CZhxiEhDz6CH7SsE';
 
-// if (isset($_POST['g-recaptcha-response'])) {
-//     $params = [
-//         'secret' => GOOGLE_RECAPTCHA_PRIVATE_KEY,
-//         'response' => $_POST['g-recaptcha-response'],
-//         'remoteip' => $_SERVER['REMOTE_ADDR']
-//     ];
-//     $curl = curl_init('https://www.google.com/recaptcha/api/siteverify?' . http_build_query($params));
-//     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-//     $response = json_decode(curl_exec($curl));
-//     curl_close($curl);
-// }
+if (isset($_POST['g-recaptcha-response'])) {
+	$url_to_google_api = "https://www.google.com/recaptcha/api/siteverify";
 
-// $recepient = "fkostya@mail.ru";
-// $siteName = "Ajax-форма";
+	$secret_key = '6Le7tlYUAAAAAPzR4cjmIaf8CZhxiEhDz6CH7SsE';
 
-// $name = trim($_POST["name"]);
-// $phone = trim($_POST["phone"]);
-// $email = trim($_POST["email"]);
-// $message = trim($_POST["message"]);
-// $messageMain = "Имя: $name \nТелефон: $phone \nEmail: $email \nСообщение: $message";
+	$query = $url_to_google_api . '?secret=' . $secret_key . '&response=' . $_POST['g-recaptcha-response'] . '&remoteip=' . $_SERVER['REMOTE_ADDR'];
 
-// $headers = 'From: $recepient' . "\r\n" .
-//     'Reply-To: $recepient' . "\r\n" .
-//     'X-Mailer: PHP/' . phpversion();
-
-
-// $pagetitle = "Заявка с сайта \"$siteName\"";
-// mail($recepient, $pagetitle, $messageMain, $headers);
+	$data = json_decode(file_get_contents($query));
+}
 
 // SMTP
 require_once('phpmailer/PHPMailerAutoload.php');
@@ -52,7 +30,7 @@ $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, 
 $mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
 
 $mail->setFrom('xxccvv33as@mail.ru'); // от кого будет уходить письмо?
-$mail->addAddress('fkostya@mail.ru');     // Кому будет уходить письмо 
+$mail->addAddress('fregire@mail.ru');     // Кому будет уходить письмо 
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
