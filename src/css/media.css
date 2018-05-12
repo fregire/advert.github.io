@@ -289,7 +289,7 @@
     right: 40px;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
   .modal .g-recaptcha {
     margin-left: -29px;
   }
