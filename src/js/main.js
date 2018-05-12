@@ -1,3 +1,146 @@
+// Две капчи - для формы с контактами и для формы в модальном окне
+var captcha1, captcha2;
+var onLoadHandler = function() {
+    captcha1 = grecaptcha.render('g-recaptcha1', {
+        'sitekey': '6Le7tlYUAAAAALlgKzeJuccDjQWG_Bur9x-zxmLz',
+        'theme': 'light'
+    });
+    captcha2 = grecaptcha.render('g-recaptcha2', {
+        'sitekey': '6Le7tlYUAAAAALlgKzeJuccDjQWG_Bur9x-zxmLz',
+        'theme': 'light'
+    });
+};
+// Отправка формы 
+// Проверка и отправка форм у модального окна
+$(".modal__form").submit(function(e) {
+    // Проверка форм
+    var tel = $(".modal__form input[name='phone']").val().split("");
+    var email = $(".modal__form input[name='email']").val();
+    var name = $(".modal__form input[name='name']").val().split("");
+    var message = $(".modal__form input[name='message']").val();
+    var captcha = grecaptcha.getResponse(captcha2);
+    //Регулярка для проверки mail
+    var emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+    
+    
+    var validName, validTel, validEmail, validCaptcha;
+    if(name.length < 3) {
+    	$(".modal__form input[name='name']").siblings(".form__name").addClass("form__name--error");
+    	e.preventDefault();
+    
+    } else {
+    	validName = true;
+    	$(".modal__form input[name='name']").siblings(".form__name").removeClass("form__name--error");
+    }
+    
+    if(tel.length != 16) {
+    	$(".modal__form input[name='phone']").siblings(".form__name").addClass("form__name--error");
+    	e.preventDefault();
+    } else {
+    	validTel = true;
+    	$(".modal__form input[name='phone']").siblings(".form__name").removeClass("form__name--error");
+    }
+    
+    if(emailReg.test(email) == false){
+    	$(".modal__form input[name='email']").siblings(".form__name").addClass("form__name--error");
+    	e.preventDefault();
+    } else {
+    	validEmail = true;
+    	$(".modal__form input[name='email']").siblings(".form__name").removeClass("form__name--error");
+    }
+    if(captcha.length == 0){
+        e.preventDefault();
+        validCaptcha = false;
+        $("#g-recaptcha2").addClass("g-recaptcha--error");
+    } else {
+        validCaptcha = true;
+        $("#g-recaptcha2").removeClass("g-recaptcha--error");
+    }
+    
+    if(validEmail == true && validTel == true && validName == true && validCaptcha === true){
+    	$.ajax({
+    		type: "POST",
+    		url: "mail.php",
+    		data: $(this).serialize()
+    	}).done(function() {
+    		grecaptcha.reset(captcha2);
+    		$(".modal").fadeOut();
+    		$(".modal__success").fadeIn();
+    		$(".input").val("");
+    		$(".input").blur();
+    		$("#g-recaptcha2").removeClass("g-recaptcha--error");
+    	});
+    	return false;
+    }
+    
+    	   // Проверка и отправка форм у формы в контактах
+});
+$(".callback .form").submit(function(e) {
+	// Проверка форм
+	var tel = $(".callback input[name='phone']").val().split("");
+	var email = $(".callback input[name='email']").val();
+	var name = $(".callback input[name='name']").val().split("");
+	var message = $(".callback input[name='message']").val();
+	var captcha = grecaptcha.getResponse(captcha1);
+	//Регулярка для проверки mail
+	var emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+   
+
+	var validName, validTel, validEmail, validCaptcha;
+	if(name.length < 3) {
+		$(".callback input[name='name']").siblings(".form__name").addClass("form__name--error");
+		e.preventDefault();
+	
+	} else {
+		validName = true;
+		$(".callback input[name='name']").siblings(".form__name").removeClass("form__name--error");
+	}
+
+	if(tel.length != 16) {
+		$(".callback input[name='phone']").siblings(".form__name").addClass("form__name--error");
+		e.preventDefault();
+	} else {
+		validTel = true;
+		$(".callback input[name='phone']").siblings(".form__name").removeClass("form__name--error");
+	}
+
+	if(emailReg.test(email) == false){
+		$(".callback input[name='email']").siblings(".form__name").addClass("form__name--error");
+		e.preventDefault();
+	} else {
+		validEmail = true;
+		$(".callback input[name='email']").siblings(".form__name").removeClass("form__name--error");
+	}
+    
+    if(captcha.length == 0) {
+        e.preventDefault();
+        validCaptcha = false;
+        $("#g-recaptcha1").addClass("g-recaptcha--error");
+    } else {
+        validCaptcha = true;
+        $("#g-recaptcha1").removeClass("g-recaptcha--error");
+    }
+
+	if(validEmail == true && validTel == true && validName == true && validCaptcha === true){
+		$.ajax({
+			type: "POST",
+			url: "mail.php",
+			data: $(this).serialize()
+		}).done(function() {
+			$(".modal__success").fadeIn();
+			$(".modal").fadeOut();
+			$(".input").val("");
+			$(".input").blur();
+			$(".form__name").removeClass(".form__name--active");
+			grecaptcha.reset(captcha1);
+			$("#g-recaptcha1").removeClass("g-recaptcha--error");
+		});
+		return false;
+	}
+
+		
+});	
+
 // Узнать сколько всего слайдов в каждом слайдере и написать это в спец теге
 var sliders = $(".projects__slider");
 for(var i = 0; i < sliders.length; i++) {

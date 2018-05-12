@@ -1017,6 +1017,13 @@ img {
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px;
+  border: 1px solid transparent;
+  -webkit-transition: all 400ms;
+  -o-transition: all 400ms;
+  transition: all 400ms;
+}
+.g-recaptcha--error {
+  border: 1px solid red;
 }
 /* Block - contacts */
 .contacts {
